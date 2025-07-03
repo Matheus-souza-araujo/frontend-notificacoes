@@ -42,7 +42,6 @@ export class NotificationComponent implements OnDestroy {
 
   atualizarStatuses() {
     for (const not of this.notificacoes) {
-      console.log(`Atualizando status da notificação: ${not.status}`);
       if (not.status === 'AGUARDANDO_PROCESSAMENTO') {
         this.notificationService
           .consultarStatus(not.mensagemId)

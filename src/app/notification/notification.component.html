@@ -1,22 +1,24 @@
 <div class="notificacao-container">
   <h2>Enviar Notificação</h2>
 
-  <form (ngSubmit)="enviar()">
+  <form>
     <input
       [(ngModel)]="conteudo"
       name="conteudo"
       required
       placeholder="Digite a mensagem"
     />
-    <button type="submit">Enviar</button>
+    <button type="submit" (click)="enviar()">Enviar</button>
   </form>
 
   <ul class="lista">
-    <li *ngFor="let n of notificacoes">
+    @for(n of notificacoes; track n.mensagemId) {
+    <li>
       <strong>{{ n.mensagemId }}</strong
       ><br />
       {{ n.conteudoMensagem }}<br />
       <em>{{ n.status }}</em>
     </li>
+    }
   </ul>
 </div>
